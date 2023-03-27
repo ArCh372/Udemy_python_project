@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+    </br>
+
+    {% if task_obj.user == request.user %}
+    <form method="POST" class="row justify-content-center">
+        {% csrf_token %}
+        <div class="col-6">
+            <input type="text" class="form-control" name="task" value="{{task_obj.task }}" placeholder="New Task?">
+            <input type="hidden" name="done" value="{{ task_obj.done }}">
+        </div>
+        <div class="d-grid col-2">
+            <button type="submit" class="btn btn-primary">Add Task</button>
+        </div>
+    </form>
+    {% else %}
+        <p class="h1 text-center mt-5">Access Restricted</p>
+    {% endif %}
+
+{% endblock content %}

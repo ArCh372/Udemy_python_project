@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row mt-5"> 
+            <div class="col-4 shadow-sm"> <img src="{% static 'photo-1484480974693-6ca0a78fb36b.avif' %}" class='img-fluid' alt="Task1" width="360" height="250"></div>
+            <div class="col-4 shadow-sm"> <img src="{% static 'photo-1506784983877-45594efa4cbe.avif' %}" class='img-fluid' alt="Notes" width="360" height="250"></div>
+            <div class="col-4 shadow-sm"> <img src="{% static 'photo-1611224923853-80b023f02d71.avif' %}" class='img-fluid' alt="Workflow" width="360" height="250"></div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-8 offset-2">
+                <p class="h1 text-primary">She almost laughed, feeling overwhelmed by her task and uneasy in the stranger's house.</p>
+                <p class="h2 text-dark">Jule's text message brought him back to the unpleasant task ahead of him.</p>
+                <center><a href="{% url 'todolist' %}"><button class="btn btn-primary shadow col-3 btn-lg">Get's started!</button></a></center>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
