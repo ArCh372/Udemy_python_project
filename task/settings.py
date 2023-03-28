@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import environ
+
+env=environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-cm&zz+tm@06_&p5h#7p(#n6_8g^x%qy++k5!j5-^%dfe#*5_15'
+SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DJANGO_DEBUG")
 
 ALLOWED_HOSTS = []
 
@@ -40,8 +44,7 @@ INSTALLED_APPS = [
     'todolist_app',
     'users_app',
     'crispy_forms',
-    'crispy_bootstrap4',
-    'bootstrap5',
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -88,11 +91,11 @@ WSGI_APPLICATION = 'task.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'random',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': env('DJANGO_DB_NAME'),
+        'USER': env('DJANGO_DB_USER'),
+        'PASSWORD': env('DJANGO_DB_PASSWORD'),
+        'HOST': env('DJANGO_DB_HOST'),
+        'PORT': env('DJANGO_DB_PORT'),
     }
 }
 
@@ -133,7 +136,9 @@ USE_TZ = False
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS=[Path(BASE_DIR,'staticfiles')]
-CRISPY_TEMPLATE_PACK='bootstrap4'
+
+CRISPY_TEMPLATE_PACK='bootstrap5'
+CRISPY_ALLOWED_TEMPLATE_PACKS='bootstrap5'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
