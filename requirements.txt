@@ -9,3 +9,4 @@ opencv-python==4.7.0.72
 psycopg2==2.9.5
 sqlparse==0.4.3
 tzdata==2022.7
+whitenoise==6.4.0
