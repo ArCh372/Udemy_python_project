@@ -11,9 +11,9 @@ def register(request):
         form=Custom(request.POST)
         if form.is_valid():
             form.save()
-            new_user=authenticate(username=form.cleaned_data['username'],
-                                  password=form.cleaned_data['password1'])
-            login(request,new_user)
+            # new_user=authenticate(username=form.cleaned_data['username'],
+            #                       password=form.cleaned_data['password1'])
+            # login(request,new_user)
             return redirect('todolist')         
     else:
         form=Custom()  
