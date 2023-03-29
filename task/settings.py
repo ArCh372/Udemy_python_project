@@ -17,7 +17,8 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DJANGO_DEBUG")
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost','127.0.0.1','taskmateproject.up.railway.app']
+CSRF_TRUSTED_ORIGINS=['taskmateproject.up.railway.app']
 
 
 # Application definition
@@ -124,7 +125,7 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS=[Path(BASE_DIR,'staticfiles')]
+STATICFILES_DIRS=Path(BASE_DIR,'staticfiles')
 STATIC_ROOT=Path(BASE_DIR,'staticfiles_app')
 
 CRISPY_TEMPLATE_PACK='bootstrap5'
