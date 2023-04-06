@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
 ]
 
+APPEND_SLASH=False
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
